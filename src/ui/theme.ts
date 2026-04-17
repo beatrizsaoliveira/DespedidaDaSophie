@@ -7,30 +7,38 @@ import { Theme } from '../types/index.js';
 
 export class ThemeManager {
     private gameState: GameState;
-    private toggleBtn: HTMLElement;
+    private toggleBtns: HTMLElement[];
 
-    constructor(gameState: GameState, toggleBtnId = 'theme-toggle') {
+    constructor(
+        gameState: GameState,
+        toggleBtnIds = ['theme-toggle', 'theme-toggle-mobile']
+    ) {
         this.gameState = gameState;
-        const btn = document.getElementById(toggleBtnId);
-        if (!btn)
-            throw new Error(`Theme toggle button #${toggleBtnId} not found`);
-        this.toggleBtn = btn;
+        this.toggleBtns = toggleBtnIds
+            .map((id) => document.getElementById(id))
+            .filter((el): el is HTMLElement => el !== null);
+        if (this.toggleBtns.length === 0)
+            throw new Error('No theme toggle buttons found');
         this.apply(gameState.theme);
-        this.toggleBtn.addEventListener('click', () => this.toggle());
+        this.toggleBtns.forEach((btn) =>
+            btn.addEventListener('click', () => this.toggle())
+        );
     }
 
     private apply(theme: Theme): void {
         document.documentElement.setAttribute('data-theme', theme);
-        this.toggleBtn.setAttribute(
-            'aria-label',
+        const label =
             theme === 'dark'
                 ? 'Mudar para modo claro'
-                : 'Mudar para modo escuro'
-        );
-        this.toggleBtn.innerHTML =
+                : 'Mudar para modo escuro';
+        const icon =
             theme === 'dark'
                 ? '<span class="theme-icon">☀️</span>'
                 : '<span class="theme-icon">🌙</span>';
+        this.toggleBtns.forEach((btn) => {
+            btn.setAttribute('aria-label', label);
+            btn.innerHTML = icon;
+        });
     }
 
     toggle(): void {
