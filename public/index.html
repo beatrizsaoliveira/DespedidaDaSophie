@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Despedida da Sophie — um jogo interativo de charadas para uma despedida de solteira inesquecível." />
+  <meta name="theme-color" content="#6b8f5e" />
+  <meta property="og:title" content="Despedida da Sophie 🌿" />
+  <meta property="og:description" content="Resolve os enigmas e descobre os segredos da tua despedida!" />
+  <title>Despedida da Sophie 🌿</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Decorative background blobs -->
+  <div class="bg-blob bg-blob--1" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--2" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--3" aria-hidden="true"></div>
+
+  <!-- Confetti canvas overlay -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Modal overlay -->
+  <div id="modal-overlay" class="modal-overlay" role="presentation"></div>
+
+  <!-- Help modal -->
+  <div id="help-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar ajuda">&times;</button>
+      <div class="modal-header">
+        <span class="modal-icon">📖</span>
+        <h2 id="help-modal-title">Como Jogar</h2>
+      </div>
+      <div class="modal-body">
+        <section class="help-section">
+          <h3>🎮 O Jogo</h3>
+          <p>A <strong>Despedida da Sophie</strong> é um jogo de charadas inspirado no Exit — o jogo de tabuleiro. Resolve os enigmas de cada desafio para descobrir os locais surpresa da tua despedida de solteira!</p>
+        </section>
+        <section class="help-section">
+          <h3>🗺️ Os Desafios</h3>
+          <ul>
+            <li><strong>🌿 Desafio I</strong> — Um momento de manhã, só para três</li>
+            <li><strong>⛵ Desafio II</strong> — Uma aventura à tarde com todas as amigas</li>
+            <li><strong>🎤 Desafio III</strong> — O grande finale da noite</li>
+          </ul>
+          <p>Cada desafio tem <strong>3 enigmas</strong>. Só o último revela o local!</p>
+        </section>
+        <section class="help-section">
+          <h3>✍️ Como Responder</h3>
+          <p>Escreve a tua resposta na caixa de texto e clica em <strong>Responder</strong>. As respostas não têm maiúsculas nem acentos — escreve como quiseres!</p>
+        </section>
+        <section class="help-section">
+          <h3>💡 Dicas</h3>
+          <p>Em cada enigma podes pedir uma dica, mas custa <strong>1 estrela</strong>. Começas com <strong>3 estrelas</strong> por desafio.</p>
+        </section>
+        <section class="help-section">
+          <h3>⭐ Pontuação</h3>
+          <p>No final do jogo verás a tua pontuação total. Quanto menos dicas usares, mais estrelas ganhas!</p>
+        </section>
+        <section class="help-section">
+          <h3>💾 Progresso Guardado</h3>
+          <p>O teu progresso é guardado automaticamente. Se fechares a página, podes continuar de onde ficaste!</p>
+        </section>
+        <section class="help-section">
+          <h3>↺ Recomeçar</h3>
+          <p>Podes recomeçar o jogo no ecrã final. Todo o progresso será apagado.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- App shell                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="app-shell">
+
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <div class="header-deco" aria-hidden="true">
+        <span class="deco-cat">🐈</span>
+        <span class="deco-flower">🌸</span>
+        <span class="deco-book">📖</span>
+      </div>
+
+      <div class="header-main">
+        <h1 class="site-title">
+          <span class="title-pre">Despedida da</span>
+          <span class="title-name">Sophie</span>
+        </h1>
+        <p class="site-tagline">18 de Abril · Um dia só teu 💚</p>
+      </div>
+
+      <nav class="header-actions" aria-label="Controlos do jogo">
+        <button class="btn btn-icon" id="help-btn" aria-label="Ajuda e regras do jogo">
+          <span aria-hidden="true">❓</span>
+          <span class="btn-label">Ajuda</span>
+        </button>
+        <button class="btn btn-icon" id="theme-toggle" aria-label="Mudar tema">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="progress-container" role="navigation" aria-label="Progresso dos desafios">
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+
+    <!-- Main game area -->
+    <main class="main-content">
+      <div id="game-root" class="game-root">
+        <!-- Rendered by screen.ts -->
+        <div class="loading-state" aria-label="A carregar o jogo...">
+          <span class="loading-spinner">🌸</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <p>Com amor, as tuas besties 💕</p>
+    </footer>
+
+  </div>
+
+  <script src="app.bundle.js"></script>
+</body>
+</html>
