@@ -1,1 +1,7 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Ensure nvm node is on PATH for npx to be found
+export PATH="$HOME/.nvm/versions/node/v20.15.1/bin:/usr/local/bin:$PATH"
+
 npx --no -- commitlint --edit "$1"

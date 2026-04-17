@@ -11,7 +11,7 @@ export const STAGES: Stage[] = [
   {
     id: StageId.Spa,
     label: 'Desafio I',
-    icon: '🌿',
+    icon: '☀️',
     timeContext: 'Manhã · Só vós três',
     teaser: 'O primeiro segredo da manhã aguarda por ti... Resolve os enigmas e descobre onde começa a aventura.',
     description: 'O dia começa com calma, carinho e as pessoas certas. São apenas três — a noiva e as suas madrinhas. Um momento só vosso, antes de tudo o resto.',
@@ -45,7 +45,7 @@ export const STAGES: Stage[] = [
   {
     id: StageId.Barco,
     label: 'Desafio II',
-    icon: '⛵',
+    icon: '🌤️',
     timeContext: 'Tarde · Com todas as amigas',
     teaser: 'O segundo segredo esconde-se onde Lisboa se encontra com a imensidão... Resolve os enigmas.',
     description: 'A tarde chega e o grupo cresce. As amigas juntam-se e a aventura também. Não há chão sólido — só movimento, brisa e horizonte.',
@@ -79,7 +79,7 @@ export const STAGES: Stage[] = [
   {
     id: StageId.Karaoke,
     label: 'Desafio III',
-    icon: '🎤',
+    icon: '🌙',
     timeContext: 'Noite · O grande finale',
     teaser: 'O terceiro e último segredo aguarda na escuridão da noite... Resolve os enigmas e brilha até ao fim.',
     description: 'A noite cai e Lisboa acende-se. É o último capítulo deste dia inesquecível — e o mais animado de todos.',

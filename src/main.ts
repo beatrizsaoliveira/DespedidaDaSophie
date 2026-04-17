@@ -13,7 +13,13 @@ function main(): void {
   const engine = new GameEngine(gameState);
   const screen = new ScreenManager(gameState, engine);
   new ThemeManager(gameState);
-  new HelpModal();
+
+  const handleReset = (): void => {
+    gameState.reset();
+    screen.render();
+  };
+
+  new HelpModal('help-btn', 'help-modal', 'modal-overlay', handleReset);
 
   screen.render();
 }

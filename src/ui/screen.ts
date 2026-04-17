@@ -106,7 +106,7 @@ export class ScreenManager {
 
     return `
       <div class="riddle-card" id="riddle-card">
-        <div class="riddle-number">Enigma ${riddleNum} de ${totalRiddles === 3 ? 'três' : totalRiddles}</div>
+        <div class="riddle-number">Enigma ${riddleNum} de ${totalRiddles}</div>
         <p class="riddle-question" id="riddle-question">${questionHtml}</p>
 
         <form class="riddle-form" id="riddle-form" autocomplete="off" novalidate>
@@ -149,7 +149,7 @@ export class ScreenManager {
           <div class="next-stage-hint">
             <p>O próximo desafio espera por ti...</p>
             <button class="btn btn-primary btn-next" id="next-stage-btn" aria-label="Ir para o próximo desafio">
-              Próximo Desafio ${nextStage.icon}
+              Próximo Desafio →
             </button>
           </div>
         ` : ''}
@@ -219,6 +219,13 @@ export class ScreenManager {
 
     // Auto-focus the input
     setTimeout(() => input.focus(), 100);
+
+    // Convert answer to lowercase as the user types
+    input.addEventListener('input', () => {
+      const pos = input.selectionStart ?? input.value.length;
+      input.value = input.value.toLowerCase();
+      input.setSelectionRange(pos, pos);
+    });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
