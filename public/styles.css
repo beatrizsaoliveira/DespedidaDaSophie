@@ -546,6 +546,15 @@ ul {
   filter: brightness(0.96);
 }
 
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  filter: none;
+  box-shadow: none;
+}
+
 .btn-outline {
   background: transparent;
   border-color: var(--color-primary);

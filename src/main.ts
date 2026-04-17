@@ -35,7 +35,6 @@ function main(): void {
     // Mobile menu button listeners
     const helpBtnMobile = document.getElementById('help-btn-mobile');
     const resetBtnMobile = document.getElementById('reset-btn-mobile');
-    const themeBtnMobile = document.getElementById('theme-toggle-mobile');
 
     helpBtnMobile?.addEventListener('click', () => {
         document.getElementById('help-btn')?.click();
@@ -50,10 +49,6 @@ function main(): void {
                 screen.render();
             }
         });
-    });
-
-    themeBtnMobile?.addEventListener('click', () => {
-        document.getElementById('theme-toggle')?.click();
     });
 
     // Persistent reset button (always visible in header)

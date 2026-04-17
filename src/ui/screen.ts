@@ -180,7 +180,7 @@ export class ScreenManager {
               autocomplete="off"
               spellcheck="false"
             />
-            <button type="submit" class="btn btn-primary" id="submit-btn" aria-label="${t.riddle.submitAriaLabel}">
+            <button type="submit" class="btn btn-primary" id="submit-btn" aria-label="${t.riddle.submitAriaLabel}" disabled>
               ${t.riddle.submitBtn}
             </button>
           </div>
@@ -298,16 +298,21 @@ export class ScreenManager {
 
         if (!form || !input || !feedback) return;
 
+        const submitBtn = document.getElementById(
+            'submit-btn'
+        ) as HTMLButtonElement | null;
+
         // Auto-focus only on non-touch devices (prevents keyboard popup on mobile)
         if (!window.matchMedia('(hover: none)').matches) {
             setTimeout(() => input.focus(), 100);
         }
 
-        // Convert answer to lowercase as the user types
+        // Convert answer to lowercase as the user types; update submit button state
         input.addEventListener('input', () => {
             const pos = input.selectionStart ?? input.value.length;
             input.value = input.value.toLowerCase();
             input.setSelectionRange(pos, pos);
+            if (submitBtn) submitBtn.disabled = input.value.trim().length === 0;
         });
 
         form.addEventListener('submit', (e) => {
