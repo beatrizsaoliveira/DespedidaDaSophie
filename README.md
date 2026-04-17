@@ -1,6 +1,6 @@
 # 🌿 Despedida da Sophie
 
-> Um jogo interativo de charadas para a despedida de solteira da Sophie — inspirado no jogo de tabuleiro **Exit**.
+> An interactive riddle game for Sophie's bachelorette party — inspired by the **Exit** board game series.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-6b8f5e?logo=github)](https://beatrizsaoliveira.github.io/DespedidaDaSophie/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue?logo=typescript)](https://www.typescriptlang.org/)
@@ -8,85 +8,113 @@
 
 ---
 
-## 📖 Sobre o Projeto
+## 📖 About
 
-A **Despedida da Sophie** é um site estático hospedado no GitHub Pages que funciona como um jogo de charadas interativo para a despedida de solteira. A Sophie resolve enigmas sequenciais para descobrir os locais surpresa do dia — um desafio por cada local.
+**Despedida da Sophie** is a static site hosted on GitHub Pages that works as an interactive riddle game for a bachelorette party. Sophie solves sequential riddles to discover the surprise locations of her special day — one stage per venue.
 
-**Tema visual:** Verde matcha · flores · livros · gatos 🐈📖🌸
-
----
-
-## 🎮 Como Funciona o Jogo
-
-O jogo é composto por **3 desafios** (estágios), cada um com **3 enigmas**:
-
-| # | Desafio | Período | Quem Participa | Local |
-|---|---------|---------|----------------|-------|
-| 1 | 🌿 Desafio I | Manhã | Sophie + 2 Madrinhas | EcoMassage |
-| 2 | ⛵ Desafio II | Tarde | Todas as amigas | Sailing Lovers |
-| 3 | 🎤 Desafio III | Noite | Todas as amigas | Golden Vista + bar |
-
-### Regras
-- Os **enigmas 1 e 2** de cada desafio são atmosféricos — dão pistas contextuais sem revelar o local
-- Apenas o **enigma 3** (o último) revela o nome do local
-- Cada resposta incorrecta mostra um aviso
-- É possível pedir uma **dica** por enigma, mas custa 1 ⭐
-- Cada desafio começa com **3 estrelas** — a pontuação final é a soma de todas
-
-### Respostas
-As respostas são verificadas de forma **insensível a maiúsculas e acentos**. Só é aceite a resposta correcta para cada enigma:
-
-| Desafio | Enigma | Resposta |
-|---------|--------|---------|
-| 🌿 Spa | 1 | `bem-estar` |
-| 🌿 Spa | 2 | `massagem` |
-| 🌿 Spa | 3 | `ecomassage` |
-| ⛵ Barco | 1 | `água` |
-| ⛵ Barco | 2 | `tejo` |
-| ⛵ Barco | 3 | `sailing lovers` |
-| 🎤 Karaokê | 1 | `festa` |
-| 🎤 Karaokê | 2 | `karaoke` |
-| 🎤 Karaokê | 3 | `golden vista` |
+**Visual theme:** matcha green · flowers · books · cats 🐈📖🌸
 
 ---
 
-## 🛠️ Stack Técnico
+## 🎮 How the Game Works
 
-| Tecnologia | Uso |
-|-----------|-----|
-| **TypeScript 5.5** | Código fonte tipado |
-| **esbuild** | Bundle rápido → `public/app.bundle.js` |
-| **ESLint 9 + @typescript-eslint** | Linting do código |
-| **Husky + Commitlint** | Validação de commits convencionais |
-| **Vanilla CSS** | Design system completo |
-| **localStorage** | Persistência do progresso |
-| **GitHub Pages** | Hosting do site estático |
+The game consists of **3 stages** (_desafios_), each with **3 riddles** (_enigmas_):
+
+| #   | Stage           | Time  | Participants                    | Venue              | Activity                     |
+| --- | --------------- | ----- | ------------------------------- | ------------------ | ---------------------------- |
+| 1   | 🌤️ Desafio I   | Manhã | Sophie + 2 bridesmaids          | EcoMassage         | Massage & wellness           |
+| 2   | ☀️ Desafio II  | Tarde | All friends                     | Sailing Lovers     | Sailing on the Tejo          |
+| 3   | 🌙 Desafio III | Noite | All friends                     | Golden Vista → Bar | Karaokê & celebration        |
+
+### Rules
+
+- **Riddles 1 and 2** of each stage are atmospheric — they give contextual clues without revealing the activity
+- Only **riddle 3** (the last one) reveals the actual venue/activity
+- An incorrect answer shows an error message with no penalty
+- Players can request one **dica** (hint) per riddle, but it costs 1 ⭐
+- Each stage starts with **3 ⭐** — the final score is the sum of all remaining stars
+
+### Answer Normalisation
+
+Answers are checked in a **case-insensitive, accent-insensitive** way. The engine strips accents, converts to lowercase, and trims whitespace before comparing — so players can type freely.
+
+### Correct Answers
+
+| Stage       | #   | Riddle opens with…                   | Answer     |
+| ----------- | --- | ------------------------------------ | ---------- |
+| 🌤️ Manhã   | 1   | Não se compra, não se vê…            | `paz`      |
+| 🌤️ Manhã   | 2   | Toque que fala para quem…            | `massagem` |
+| 🌤️ Manhã   | 3   | Templo moderno sem deuses…           | `spa`      |
+| ☀️ Tarde   | 1   | Tudo o que cai volta ao seu seio…    | `água`     |
+| ☀️ Tarde   | 2   | Linha que conecta dois mundos…       | `tejo`     |
+| ☀️ Tarde   | 3   | Ponte flutuante entre quem éramos…   | `barco`    |
+| 🌙 Noite   | 1   | Combustível que não deixa cinzas…    | `diversão` |
+| 🌙 Noite   | 2   | Frequência que precede palavras…     | `música`   |
+| 🌙 Noite   | 3   | Morte e ressurreição em três minutos… | `karaoke`  |
 
 ---
 
-## 📁 Estrutura do Projecto
+## 🖥️ Screens
+
+| Screen            | Description                                                                 |
+| ----------------- | --------------------------------------------------------------------------- |
+| **Intro**         | Cover image (`start.jpg`), title, tagline, and "Iniciar a Aventura" button  |
+| **Stage / Riddle**| Stage header, star rating, riddle progress track, riddle card with hint     |
+| **Venue reveal**  | Reveal text, venue photo, personalised PT-PT message, next-stage button     |
+| **Fim**           | Confetti, final score, per-stage star recap, restart button                 |
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology                        | Purpose                                      |
+| --------------------------------- | -------------------------------------------- |
+| **TypeScript 5.5**                | Typed source code                            |
+| **esbuild**                       | Fast bundler → `public/app.bundle.js`        |
+| **Animate.css (CDN)**             | Entrance/exit CSS animations                 |
+| **ESLint 9 + @typescript-eslint** | Code linting                                 |
+| **Prettier**                      | Automatic code formatting                    |
+| **Husky + Commitlint**            | Conventional commit validation               |
+| **Vanilla CSS**                   | Full design system with CSS custom properties|
+| **localStorage**                  | Game progress persistence                    |
+| **GitHub Pages**                  | Static site hosting                          |
+
+---
+
+## 📁 Project Structure
 
 ```
 DespedidaDaSophie/
-├── public/               # Ficheiros servidos pelo GitHub Pages
-│   ├── index.html        # Entrada do site
-│   ├── styles.css        # Design system completo
-│   └── app.bundle.js     # Bundle gerado pelo esbuild (não editar)
-├── src/                  # Código TypeScript (fonte)
-│   ├── main.ts           # Ponto de entrada
+├── public/               # Files served by GitHub Pages
+│   ├── index.html        # App entry point & help modal markup
+│   ├── styles.css        # Full design system (light/dark, responsive)
+│   ├── app.bundle.js     # esbuild output — do not edit directly
+│   └── images/           # Venue photos + intro cover image
+│       ├── start.jpg     # Intro screen cover
+│       ├── spa.jpg       # EcoMassage venue reveal
+│       ├── boat.jpg      # Sailing Lovers venue reveal
+│       └── karaoke.jpg   # Golden Vista venue reveal
+├── src/                  # TypeScript source
+│   ├── main.ts           # Bootstrap: wires all modules, mobile menu
 │   ├── types/
-│   │   └── index.ts      # Interfaces e enums partilhados
+│   │   ├── index.ts      # Shared interfaces & enums (Stage, SavedState…)
+│   │   └── globals.d.ts  # Global ambient declarations
+│   ├── i18n/             # Internationalisation
+│   │   ├── types.ts      # Translations interface contract
+│   │   ├── pt-PT.ts      # Active locale — Português (Portugal)
+│   │   └── index.ts      # Re-exports active locale as `t`
 │   ├── game/
-│   │   ├── riddles.ts    # Dados de todos os enigmas e estágios
-│   │   ├── gameState.ts  # Gestão de estado + localStorage
-│   │   └── engine.ts     # Lógica: verificação de respostas e avanço
+│   │   ├── riddles.ts    # All stage & riddle data (questions, answers, hints, images)
+│   │   ├── gameState.ts  # State manager + localStorage persistence
+│   │   └── engine.ts     # Answer checking, hint logic, stage advancement
 │   └── ui/
-│       ├── theme.ts      # Toggle light/dark mode
-│       ├── help.ts       # Modal de ajuda
-│       ├── screen.ts     # Renderização de ecrans/estágios
-│       └── animations.ts # Confetti e micro-animações
+│       ├── screen.ts     # Renders all screens (intro, stage, venue reveal, fim)
+│       ├── theme.ts      # Light/dark mode toggle
+│       ├── help.ts       # Help modal open/close
+│       └── animations.ts # Confetti launcher & micro-animations (shake, pulse)
 ├── .husky/
-│   └── commit-msg        # Hook de commitlint
+│   ├── commit-msg        # commitlint hook
+│   └── pre-commit        # Prettier auto-format hook
 ├── tsconfig.json
 ├── eslint.config.mjs
 ├── .commitlintrc.json
@@ -97,49 +125,57 @@ DespedidaDaSophie/
 
 ---
 
-## 🚀 Desenvolvimento Local
+## 🚀 Local Development
 
-### Pré-requisitos
-- Node.js ≥ 18 (recomendado: v20.x via nvm)
+### Prerequisites
+
+- Node.js ≥ 18 (recommended: v20.x via nvm)
 - npm ≥ 10
 
-### Instalar dependências
+### Install dependencies
+
 ```bash
 npm install
 ```
 
-### Modo desenvolvimento (watch)
+### Development mode (watch)
+
 ```bash
 npm run dev
 ```
-Abre `public/index.html` directamente no browser. O bundle é reconstruído automaticamente a cada alteração.
 
-### Build de produção
+Open `public/index.html` directly in the browser. The bundle is rebuilt automatically on every change.
+
+### Production build
+
 ```bash
 npm run build
 ```
-Gera o ficheiro `public/app.bundle.js` minificado.
 
-### Verificar tipos TypeScript
+Generates the minified `public/app.bundle.js`.
+
+### TypeScript type-check
+
 ```bash
 npm run typecheck
 ```
 
 ### Linting
+
 ```bash
-npm run lint       # Verificar
-npm run lint:fix   # Corrigir automaticamente
+npm run lint        # check
+npm run lint:fix    # auto-fix
 ```
 
 ---
 
 ## 📦 Deploy (GitHub Pages)
 
-O repositório está configurado para fazer deploy automático a partir da branch `main`. Após cada push:
+The repository is configured to deploy from the `main` branch. After making changes:
 
-1. Certifica-te de que o build foi feito: `npm run build`
-2. Faz commit das alterações incluindo o `public/app.bundle.js`
-3. Push para `main`
+1. Run the build: `npm run build`
+2. Commit the changes including `public/app.bundle.js`
+3. Push to `main`
 
 ```bash
 npm run build
@@ -148,47 +184,60 @@ git commit -m "build: update bundle"
 git push origin main
 ```
 
-O site fica disponível em: `https://beatrizsaoliveira.github.io/DespedidaDaSophie/`
+The site is available at: `https://beatrizsaoliveira.github.io/DespedidaDaSophie/`
 
-> **Nota:** O GitHub Pages serve a partir da raíz do repositório. Certifica-te que `public/` como pasta de origem está configurado nas definições do repositório, ou move os ficheiros para a raíz se necessário.
-
----
-
-## 🔧 Personalização
-
-### Alterar os enigmas
-Edita o ficheiro `src/game/riddles.ts`. Cada enigma tem:
-- `question` — texto da charada
-- `answer` — resposta aceite (sempre em minúsculas)
-- `hint` — dica opcional (custa 1 ⭐)
-
-Após editar, faz rebuild: `npm run build`
-
-### Alterar o tema visual
-O design system está inteiramente em `public/styles.css` nas CSS Custom Properties (`:root` e `[data-theme='dark']`).
+> **Note:** GitHub Pages serves from the repository root. Make sure `public/` is set as the source folder in the repository settings, or move the files to the root if needed.
 
 ---
 
-## 📝 Commits Convencionais
+## 🔧 Customisation
 
-Este projecto usa [Conventional Commits](https://www.conventionalcommits.org/) validados pelo Husky:
+### Changing riddles
+
+Edit `src/game/riddles.ts`. Each riddle has:
+
+- `question` — riddle text (can be multi-line with `\n`)
+- `answer` — accepted answer (always lowercase; accents are stripped automatically)
+- `hint` — optional hint (costs 1 ⭐)
+
+Each stage also has:
+
+- `venueImage` — path relative to `public/` (e.g. `images/spa.jpg`)
+- `venueMessage` — personalised message shown after the stage is completed
+
+Rebuild after editing: `npm run build`
+
+### Adding a new language
+
+Implement the `Translations` interface from `src/i18n/types.ts` in a new file (e.g. `src/i18n/en-GB.ts`), then swap the import in `src/i18n/index.ts`.
+
+### Changing the visual theme
+
+The design system lives entirely in `public/styles.css` as CSS custom properties (`:root` for light mode, `[data-theme='dark']` for dark mode).
+
+---
+
+## 📝 Conventional Commits
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) validated by Husky:
 
 ```
-feat: nova funcionalidade
-fix: correcção de bug
-build: alterações de build
-style: alterações de CSS/estilos
-docs: documentação
-refactor: refactorização de código
-chore: tarefas gerais
+feat:     new feature
+fix:      bug fix
+build:    build system changes
+style:    CSS / style changes
+docs:     documentation
+refactor: code refactoring
+chore:    miscellaneous tasks
 ```
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-MIT — ver [LICENSE](LICENSE)
+MIT — see [LICENSE](LICENSE)
 
 ---
 
-*Com amor, as tuas besties 💕*
+
+_Com amor, as tuas besties 💕_
