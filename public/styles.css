@@ -175,11 +175,7 @@ ul {
 .bg-blob--1 {
   width: 480px;
   height: 480px;
-  background: radial-gradient(
-    circle,
-    var(--color-primary-light),
-    transparent 70%
-  );
+  background: radial-gradient(circle, var(--color-primary-light), transparent 70%);
   top: -120px;
   right: -120px;
   animation: blobDrift 18s ease-in-out infinite alternate;
@@ -188,11 +184,7 @@ ul {
 .bg-blob--2 {
   width: 360px;
   height: 360px;
-  background: radial-gradient(
-    circle,
-    var(--color-accent-light),
-    transparent 70%
-  );
+  background: radial-gradient(circle, var(--color-accent-light), transparent 70%);
   bottom: 60px;
   left: -80px;
   animation: blobDrift 24s ease-in-out infinite alternate-reverse;
@@ -471,11 +463,7 @@ ul {
 }
 
 .title-name {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -526,11 +514,7 @@ ul {
 }
 
 .btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-primary-dark)
-  );
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   color: #fff;
   box-shadow: var(--shadow-sm);
 }
@@ -700,11 +684,7 @@ ul {
 }
 
 .progress-dot.completed {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-primary-dark)
-  );
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   border-color: var(--color-primary-dark);
   color: #fff;
   font-size: 0.9rem;
@@ -1027,11 +1007,7 @@ ul {
 
 .fim-title {
   font-size: clamp(1.8rem, 5vw, 2.4rem);
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
